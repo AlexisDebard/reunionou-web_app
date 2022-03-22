@@ -2,15 +2,32 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import axios from 'axios'
 //import 'bootstrap/dist/css/bootstrap.css'
 //import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/custom.scss'
 
-// Make BootstrapVue available throughout your project
-Vue.use(BootstrapVue)
-// Optionally install the BootstrapVue icon components plugin
-Vue.use(IconsPlugin)
+Vue.prototype.$api = axios.create({
+  baseURL : 'http://docketu.iutnc.univ-lorraine.fr:62640/',
+  params : {},
+  headers : {}
+});
+
+Vue.prototype.$api.interceptors.request.use(function(config){
+  console.log(config)
+  if(store.state.token){
+    config.params.token = store.state.token
+  }
+  return config;
+})
+
+Vue.prototype.$api.interceptors.response.use(function(response){
+  return response;
+},function(error){
+  if(error.response.data.message) {
+    alert(error.response.data.message);
+  }
+})
 
 Vue.config.productionTip = false
 
