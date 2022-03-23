@@ -6,6 +6,11 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/home',
+    name: 'Home',
+    component:()=> import(/* webpackChunkName: "about" */ '../views/Home.vue')
+  },
+  {
     path: '/inscription',
     name: 'Inscription',
     component: () => import(/* webpackChunkName: "about" */ '../views/Inscription.vue')
@@ -24,5 +29,3 @@ const router = new VueRouter({
 })
 
 export default router
-
-

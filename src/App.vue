@@ -19,7 +19,7 @@ export default {
       this.seConnecter();
     }
     else{
-      this.$api.get(`members/${this.$store.state.member.id}/signedin`)
+      this.$api.get(`users/${this.$store.state.member.id}/signin`)
       .then(this.demarrer)
       .catch(this.seConnecter);
     }

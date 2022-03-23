@@ -77,8 +77,9 @@ export default {
                 password: this.password
             }
              this.$api
-             .post('members', donnees)
+             .post('/signup', donnees)
              .then((response)=> {
+                 console.log(response)
                  alert('Votre compte a été créé, vous pouvez vous connecter.');
                  this.$router.push("/connexion");
              }).catch(error=>{
