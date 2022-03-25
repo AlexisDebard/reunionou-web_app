@@ -20,6 +20,11 @@ const routes = [
     name: 'Connexion',
     component: () => import(/* webpackChunkName: "about" */ '../views/Connexion.vue')
   },
+  {
+    path: '/deconnexion',
+    name: 'Deconnexion',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Deconnexion.vue')
+  },
 ]
 
 const router = new VueRouter({

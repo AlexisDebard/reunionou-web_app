@@ -5,6 +5,7 @@
     <p>
       Connecté en tant que <b>{{ $store.state.member.fullname }}</b>
     </p>
+    <router-link class="button is-text" to="deconnexion">Se déconnecter</router-link>
   </div>
 </template>
 
